@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "treino.md"
+      - "scripts/**"
   workflow_dispatch:
 
 permissions:
@@ -14,10 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt-get update && sudo apt-get install -y pandoc
-      - run: >
-          pandoc treino.md -o treino.epub
-          --metadata lang=pt-BR --metadata title="Treino - Dom Core" --split-level=2
+      - run: python3 scripts/build_epub.py treino.md treino.epub
       - name: Commit se houve mudança
         run: |
           if [ -n "$(git status --porcelain treino.epub)" ]; then

@@ -1,0 +1,10 @@
+body { margin: 0; padding: 0 0.3em; font-family: -apple-system, "Helvetica Neue", sans-serif; font-size: 0.8em; line-height: 1.25; }
+h2 { font-size: 1.2em; margin: 1em 0 0.4em; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+th, td { border: 1px solid #999; padding: 0.25em 0.3em; text-align: left; vertical-align: top; word-wrap: break-word; overflow-wrap: anywhere; hyphens: auto; }
+th { background: #e8e8e8; }
+th:nth-child(1), td:nth-child(1) { width: 14%; }
+th:nth-child(2), td:nth-child(2) { width: 30%; }
+th:nth-child(3), td:nth-child(3) { width: 18%; }
+th:nth-child(4), td:nth-child(4) { width: 19%; }
+th:nth-child(5), td:nth-child(5) { width: 19%; }
