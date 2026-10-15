@@ -17,7 +17,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y pandoc
       - run: >
           pandoc Treino_Dom_Core.md -o Treino_Dom_Core.epub
-          --metadata lang=pt-BR --metadata title="Treino - Dom Core" --toc --split-level=2
+          --metadata lang=pt-BR --metadata title="Treino - Dom Core" --split-level=2
       - name: Commit se houve mudança
         run: |
           if [ -n "$(git status --porcelain Treino_Dom_Core.epub)" ]; then
