@@ -6,9 +6,8 @@ body {
 }
 h1 {
   font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
-  font-weight: normal; font-size: 1.3em; line-height: 1.2;
+  font-weight: normal; font-size: 1.8em; line-height: 1.2;
   margin: 0.2em 0 0.7em; padding-left: 0.5em; border-left: 3px solid #c96442;
-  page-break-before: always; break-before: page;
 }
 table { width: 100%; border-collapse: collapse; }
 th, td {

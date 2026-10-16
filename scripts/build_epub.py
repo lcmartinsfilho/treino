@@ -27,12 +27,13 @@ def parse(md):
 
 
 def font_vw(header, rows):
-    """Tamanho de fonte (em vw) para a tabela inteira caber numa linha por célula."""
+    """Tamanho de fonte (em %) para a tabela inteira caber numa linha por célula."""
     em = 0.0
     for i in range(len(header)):
         w = max(len(header[i]) * 0.8, *(len(r[i]) * 0.58 for r in rows))
         em += w + 1.1  # preenchimento horizontal da célula
-    return min(4.2, 90 / (em * 0.93))
+    # 1vw = 4.02px num iPhone em retrato; devolve % de uma base de 16px (vw não é respeitado pelo Apple Livros)
+    return min(4.2, 90 / (em * 0.93)) * 4.02 / 16 * 100
 
 
 def page(title, header, rows):
@@ -41,7 +42,7 @@ def page(title, header, rows):
     trs = "".join("<tr>" + "".join(f"<td>{e(c)}</td>" for c in r) + "</tr>" for r in rows)
     return ('<?xml version="1.0" encoding="utf-8"?>\n<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-BR">'
             f'<head><meta charset="utf-8"/><title>{e(title)}</title><link rel="stylesheet" href="style.css"/>'
-            f'<style>body{{font-size:70%;font-size:{vw:.2f}vw}}</style></head>'
+            f'<style>body{{font-size:{vw:.0f}%}}</style></head>'
             f"<body><h1>{e(title)}</h1><table><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table></body></html>")
 
 
