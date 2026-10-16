@@ -30,10 +30,11 @@ def font_vw(header, rows):
     """Tamanho de fonte (em %) para a tabela inteira caber numa linha por célula."""
     em = 0.0
     for i in range(len(header)):
-        w = max(len(header[i]) * 0.8, *(len(r[i]) * 0.58 for r in rows))
+        cap = 24 if i == 1 else 999  # a coluna do exercício pode quebrar linha
+        w = max(len(header[i]) * 0.8, *(min(len(r[i]), cap) * 0.58 for r in rows))
         em += w + 1.1  # preenchimento horizontal da célula
     # 1vw = 4.02px num iPhone em retrato; devolve % de uma base de 16px (vw não é respeitado pelo Apple Livros)
-    return min(4.2, 90 / (em * 0.93)) * 4.02 / 16 * 100
+    return min(3.0, 90 / (em * 0.93)) * 4.02 / 16 * 100
 
 
 def page(title, header, rows):
