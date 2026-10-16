@@ -1,9 +1,6 @@
-html, body { background: #faf9f5; }
-body {
-  margin: 0; padding: 0.6em 0.5em; color: #141413;
-  font-family: -apple-system, "Helvetica Neue", "Segoe UI", sans-serif;
-  line-height: 1.35;
-}
+/* Sem cores de fundo/texto fixas: o leitor (tema claro, sépia ou escuro) define as cores,
+   e os detalhes usam cinza translúcido, que funciona em qualquer fundo. */
+body { margin: 0; padding: 0.6em 0.5em; line-height: 1.35; font-family: -apple-system, "Helvetica Neue", "Segoe UI", sans-serif; }
 h1 {
   font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
   font-weight: normal; font-size: 1.8em; line-height: 1.2;
@@ -12,20 +9,11 @@ h1 {
 table { width: 100%; border-collapse: collapse; }
 th, td {
   padding: 0.55em 0.5em; text-align: left; vertical-align: top;
-  border-bottom: 1px solid #e8e6dc; white-space: nowrap;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.35); white-space: nowrap;
 }
 th {
-  background: #f0eee6; color: #6b6a64; font-weight: bold;
-  font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.06em;
-  border-bottom: 2px solid #c96442;
+  background: rgba(128, 128, 128, 0.14); font-weight: bold; font-size: 0.85em;
+  text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid #c96442;
 }
-td:nth-child(1) { color: #6b6a64; }
+td:nth-child(1) { opacity: 0.6; }
 td:nth-child(4) { font-weight: bold; }
-
-@media (prefers-color-scheme: dark) {
-  html, body { background: #262624; color: #faf9f5; }
-  h1 { border-left-color: #d97757; }
-  th, td { border-bottom-color: #3d3d3a; }
-  th { background: #30302e; color: #a3a29b; border-bottom-color: #d97757; }
-  td:nth-child(1) { color: #a3a29b; }
-}
