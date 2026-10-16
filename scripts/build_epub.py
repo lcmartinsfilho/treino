@@ -26,11 +26,22 @@ def parse(md):
     return sections
 
 
+def font_vw(header, rows):
+    """Tamanho de fonte (em vw) para a tabela inteira caber numa linha por célula."""
+    em = 0.0
+    for i in range(len(header)):
+        w = max(len(header[i]) * 0.8, *(len(r[i]) * 0.58 for r in rows))
+        em += w + 1.1  # preenchimento horizontal da célula
+    return min(4.2, 90 / (em * 0.93))
+
+
 def page(title, header, rows):
+    vw = font_vw(header, rows)
     th = "".join(f"<th>{e(c)}</th>" for c in header)
     trs = "".join("<tr>" + "".join(f"<td>{e(c)}</td>" for c in r) + "</tr>" for r in rows)
     return ('<?xml version="1.0" encoding="utf-8"?>\n<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-BR">'
-            f'<head><meta charset="utf-8"/><title>{e(title)}</title><link rel="stylesheet" href="style.css"/></head>'
+            f'<head><meta charset="utf-8"/><title>{e(title)}</title><link rel="stylesheet" href="style.css"/>'
+            f'<style>body{{font-size:70%;font-size:{vw:.2f}vw}}</style></head>'
             f"<body><h1>{e(title)}</h1><table><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table></body></html>")
 
 
@@ -41,7 +52,7 @@ def main(src, dst):
         for n, (name, rows) in enumerate(sections):
             header, body = rows[0], rows[1:]
             h = header[:3] + ["Carga"]
-            b = [r[:3] + [r[col]] for r in body]
+            b = [[r[0], r[1].split(" — ")[0]] + r[2:3] + [r[col]] for r in body]
             title = f"{person} · {name}"
             pages.append((f"{person.lower()}-{n}.xhtml", title, page(title, h, b)))
 

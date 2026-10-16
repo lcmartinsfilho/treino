@@ -2,18 +2,18 @@ html, body { background: #faf9f5; }
 body {
   margin: 0; padding: 0.6em 0.5em; color: #141413;
   font-family: -apple-system, "Helvetica Neue", "Segoe UI", sans-serif;
-  font-size: 0.75em; line-height: 1.35;
+  line-height: 1.35;
 }
 h1 {
   font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
-  font-weight: normal; font-size: 1.5em; line-height: 1.2;
+  font-weight: normal; font-size: 1.3em; line-height: 1.2;
   margin: 0.2em 0 0.7em; padding-left: 0.5em; border-left: 3px solid #c96442;
   page-break-before: always; break-before: page;
 }
-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+table { width: 100%; border-collapse: collapse; }
 th, td {
   padding: 0.55em 0.5em; text-align: left; vertical-align: top;
-  border-bottom: 1px solid #e8e6dc; word-wrap: break-word; overflow-wrap: anywhere;
+  border-bottom: 1px solid #e8e6dc; white-space: nowrap;
 }
 th {
   background: #f0eee6; color: #6b6a64; font-weight: bold;
@@ -22,10 +22,6 @@ th {
 }
 td:nth-child(1) { color: #6b6a64; }
 td:nth-child(4) { font-weight: bold; }
-th:nth-child(1), td:nth-child(1) { width: 14%; }
-th:nth-child(2), td:nth-child(2) { width: 32%; }
-th:nth-child(3), td:nth-child(3) { width: 27%; }
-th:nth-child(4), td:nth-child(4) { width: 27%; }
 
 @media (prefers-color-scheme: dark) {
   html, body { background: #262624; color: #faf9f5; }
