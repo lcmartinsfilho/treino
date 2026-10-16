@@ -34,7 +34,7 @@
 | 500 | Flexora em pé (controlar a descida) | 3x10-8 | 17.5 - 17.5 | 17.5 - 17.5 |
 | 503 | Cadeira Abdutora Lifefitness (2" contração) | 3x10-8 | 45 kg | 50 |
 | 702 | Leg Sentado Unilateral | 3x10-8 | 10 | 15 |
-| 701 | Pêndulo | 3x10-8 | 5/5 | 5/5 |
+| 701 | Pêndulo | 3x10-8 | 5-5 | 5-5 |
 | 503 | Cadeira adutora | 3x12-10-8 | 25 | 30 |
 | 504/505 | Cadeira extensora (2" contração) | 3x12-10-8 | 25/30/40 | 35/40/45 |
 | 433 | Panturrilha em pé | 5x12 | 25 | 25 |
